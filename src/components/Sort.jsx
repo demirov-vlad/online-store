@@ -10,6 +10,22 @@ function Sort() {
     return setOpen(false);
   };
 
+  React.useEffect(() => {
+    const keyDownHandler = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", keyDownHandler);
+
+    // 👇️ clean up event listener
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, []);
+
   return (
     <div className="sort">
       <div className="sort__label">
