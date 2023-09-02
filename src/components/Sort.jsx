@@ -3,7 +3,7 @@ import React from "react";
 function Sort() {
   const [sortBy, setSortBy] = React.useState(0);
   const [open, setOpen] = React.useState(false);
-  const sortList = ["most popular", "price", "A-Z"];
+  const sortList = ["popular", "price", "A-Z"];
 
   const closeOnClick = function close(index) {
     setSortBy(index);
