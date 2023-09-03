@@ -1,30 +1,19 @@
 import React from "react";
 
-function Sort() {
-  const [sortBy, setSortBy] = React.useState(0);
+function Sort({ sortValue, onChangeSort }) {
   const [open, setOpen] = React.useState(false);
-  const sortList = ["popular", "price", "A-Z"];
+  const sortList = [
+    { name: "popular", sortProp: "rating" },
+    { name: "price: high to low", sortProp: "price" },
+    { name: "price: low to high", sortProp: "-price" },
+    { name: "A-Z", sortProp: "-title" },
+    { name: "Z-A", sortProp: "title" },
+  ];
 
-  const closeOnClick = function close(index) {
-    setSortBy(index);
-    return setOpen(false);
+  const onClickSortItem = (index) => {
+    onChangeSort(index);
+    setOpen(false);
   };
-
-  React.useEffect(() => {
-    const keyDownHandler = (event) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", keyDownHandler);
-
-    // 👇️ clean up event listener
-    return () => {
-      document.removeEventListener("keydown", keyDownHandler);
-    };
-  }, []);
 
   return (
     <div className="sort">
@@ -42,20 +31,20 @@ function Sort() {
           />
         </svg>
         <b>Sort by:</b>
-        <span onClick={() => setOpen(!open)}>{sortList[sortBy]}</span>
+        <span onClick={() => setOpen(!open)}>{sortValue.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
           <ul>
-            {sortList.map((item, index) => (
+            {sortList.map((obj) => (
               <li
-                key={item}
+                key={obj.name}
                 onClick={() => {
-                  closeOnClick(index);
+                  onClickSortItem(obj);
                 }}
-                className={sortBy === index ? "active" : ""}
+                className={sortValue.sortProp === obj.sortProp ? "active" : ""}
               >
-                {item}
+                {obj.name}
               </li>
             ))}
           </ul>
