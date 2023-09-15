@@ -16,7 +16,7 @@ import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 import { fetchPizzas, selectPizzaData } from "../redux/slices/pizzaSlice";
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const navigate = useNavigate();
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
@@ -25,12 +25,12 @@ export const Home = () => {
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (pageNumber: number) => {
+    dispatch(setCurrentPage(pageNumber));
   };
 
   const getPizzas = async () => {
@@ -40,6 +40,7 @@ export const Home = () => {
     const search = searchValue ? `search=${searchValue}` : "";
 
     dispatch(
+      // @ts-ignore
       fetchPizzas({
         sortBy,
         order,
@@ -86,7 +87,7 @@ export const Home = () => {
     isSearch.current = false;
   }, [categoryId, sort.sortProp, searchValue, currentPage]);
 
-  const pizzas = items.map((object) => (
+  const pizzas = items.map((object: any) => (
     <Link key={object.id} to={`/pizza/${object.id}`}>
       <PizzaBlock {...object} />
     </Link>
@@ -108,7 +109,7 @@ export const Home = () => {
       {status === "error" ? (
         <div className="content__error-info">
           <h2>
-            Sorry, error on the page <icon>😕</icon>
+            Sorry, error on the page <span>😕</span>
           </h2>
           <p>
             Unfortunately, there is a problem with pizzas fetching. <br />
