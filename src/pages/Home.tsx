@@ -1,7 +1,7 @@
 import React from "react";
 import qs from "qs";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import {
   selectFilter,
@@ -14,14 +14,19 @@ import Sort, { sortList } from "../components/Sort";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
-import { fetchPizzas, selectPizzaData } from "../redux/slices/pizzaSlice";
+import {
+  FetchParams,
+  fetchPizzas,
+  selectPizzaData,
+} from "../redux/slices/pizzaSlice";
+import { useAppDispatch } from "../redux/store";
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
   const { items, status } = useSelector(selectPizzaData);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
 
@@ -40,7 +45,6 @@ export const Home: React.FC = () => {
     const search = searchValue ? `search=${searchValue}` : "";
 
     dispatch(
-      // @ts-ignore
       fetchPizzas({
         sortBy,
         order,
@@ -68,10 +72,19 @@ export const Home: React.FC = () => {
   // if first render occurred, checking URL params and saving them to Redux
   React.useEffect(() => {
     if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
-      const sort = sortList.find((obj) => obj.sortProp === params.sortProp);
+      const params = qs.parse(
+        window.location.search.substring(1),
+      ) as unknown as FetchParams;
+      const sort = sortList.find((obj) => obj.sortProp === params.sortBy);
 
-      dispatch(setFilters({ ...params, sort }));
+      dispatch(
+        setFilters({
+          searchValue: params.search,
+          categoryId: Number(params.category),
+          currentPage: Number(params.currentPage),
+          sort: sort || sortList[0],
+        }),
+      );
 
       isSearch.current = true;
     }
@@ -88,9 +101,8 @@ export const Home: React.FC = () => {
   }, [categoryId, sort.sortProp, searchValue, currentPage]);
 
   const pizzas = items.map((object: any) => (
-    <Link key={object.id} to={`/pizza/${object.id}`}>
-      <PizzaBlock {...object} />
-    </Link>
+    <PizzaBlock {...object} />
+    //</Link>
   ));
   const skeletons = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
