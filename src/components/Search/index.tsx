@@ -9,7 +9,7 @@ export const Search: React.FC = () => {
   const [value, setValue] = React.useState("");
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const onChangeInput = (event: any) => {
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     updateSearchValue(event.target.value);
   };
