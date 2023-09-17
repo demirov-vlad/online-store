@@ -1,10 +1,14 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectSort, setSort, SortPropEnum } from "../redux/slices/filterSlice";
+import { useDispatch } from "react-redux";
+import { setSort, Sort, SortPropEnum } from "../redux/slices/filterSlice";
 
 type SortItem = {
   name: string;
   sortProp: SortPropEnum;
+};
+
+type PopupProps = {
+  value: Sort;
 };
 
 export const sortList: SortItem[] = [
@@ -15,9 +19,8 @@ export const sortList: SortItem[] = [
   { name: "Z-A", sortProp: SortPropEnum.TITLE_DESC },
 ];
 
-function SortPopup() {
+const SortPopup: React.FC<PopupProps> = React.memo(({ value }) => {
   const dispatch = useDispatch();
-  const sort = useSelector(selectSort);
   const sortRef = React.useRef<HTMLDivElement>(null);
 
   const [open, setOpen] = React.useState(false);
@@ -53,7 +56,7 @@ function SortPopup() {
           />
         </svg>
         <b>Sort by:</b>
-        <span onClick={() => setOpen(!open)}>{sort.name}</span>
+        <span onClick={() => setOpen(!open)}>{value.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
@@ -64,7 +67,7 @@ function SortPopup() {
                 onClick={() => {
                   onClickSortItem(obj);
                 }}
-                className={sort.sortProp === obj.sortProp ? "active" : ""}
+                className={value.sortProp === obj.sortProp ? "active" : ""}
               >
                 {obj.name}
               </li>
@@ -74,6 +77,6 @@ function SortPopup() {
       )}
     </div>
   );
-}
+});
 
 export default SortPopup;

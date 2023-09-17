@@ -30,9 +30,9 @@ export const Home: React.FC = () => {
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
 
-  const onChangeCategory = (id: number) => {
+  const onChangeCategory = React.useCallback((id: number) => {
     dispatch(setCategoryId(id));
-  };
+  }, []);
 
   const onChangePage = (pageNumber: number) => {
     dispatch(setCurrentPage(pageNumber));
@@ -101,8 +101,7 @@ export const Home: React.FC = () => {
   }, [categoryId, sort.sortProp, searchValue, currentPage]);
 
   const pizzas = items.map((object: any) => (
-    <PizzaBlock {...object} />
-    //</Link>
+    <PizzaBlock key={object.id} {...object} />
   ));
   const skeletons = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
@@ -115,7 +114,7 @@ export const Home: React.FC = () => {
           categoryValue={categoryId}
           onChangeCategory={onChangeCategory}
         />
-        <Sort />
+        <Sort value={sort} />
       </div>
       <h2 className="content__title">All pizzas</h2>
       {status === "error" ? (

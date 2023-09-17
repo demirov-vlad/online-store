@@ -78,7 +78,7 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 1040px) {
+    @media (max-width: 1115px) {
       .categories {
         width: 100%;
         overflow: auto;
@@ -226,6 +226,26 @@ body {
         svg {
           path:first-of-type {
             display: none;
+          }
+        }
+        &--disabled {   /*or "&:disabled" without using clsx*/
+          opacity: 0.4;
+          border-color: #787878;
+
+          &:active {
+            transform: none;
+          }
+
+          &:hover {
+            background: transparent;
+
+            svg path {
+              fill: #787878;
+            }
+          }
+
+          svg path {
+            fill: #787878;
           }
         }
       }
