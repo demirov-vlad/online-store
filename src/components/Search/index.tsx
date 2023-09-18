@@ -14,11 +14,12 @@ export const Search: React.FC = () => {
     updateSearchValue(event.target.value);
   };
 
-  const updateSearchValue = React.useCallback(
-    debounce((str) => {
-      dispatch(setSearchValue(str));
-    }, 500),
-    [],
+  const updateSearchValue = React.useMemo(
+    () =>
+      debounce((str) => {
+        dispatch(setSearchValue(str));
+      }, 500),
+    [dispatch],
   );
 
   const onClickClear = () => {

@@ -28,9 +28,12 @@ export const Home: React.FC = () => {
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
 
-  const onChangeCategory = React.useCallback((id: number) => {
-    dispatch(setCategoryId(id));
-  }, []);
+  const onChangeCategory = React.useCallback(
+    (id: number) => {
+      dispatch(setCategoryId(id));
+    },
+    [dispatch],
+  );
 
   const onChangePage = (pageNumber: number) => {
     dispatch(setCurrentPage(pageNumber));
@@ -65,7 +68,7 @@ export const Home: React.FC = () => {
       navigate(`?${queryString}`);
     }
     isMounted.current = true;
-  }, [categoryId, sort.sortProp, searchValue, currentPage]);
+  }, [categoryId, sort.sortProp, searchValue, currentPage, navigate]);
 
   // if first render occurred, checking URL params and saving them to Redux
   React.useEffect(() => {
@@ -86,7 +89,7 @@ export const Home: React.FC = () => {
 
       isSearch.current = true;
     }
-  }, []);
+  }, [dispatch]);
 
   // if first render occurred, fetch pizzas
   React.useEffect(() => {
