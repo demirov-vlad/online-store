@@ -21,6 +21,14 @@ export type FetchParams = {
   currentPage: number;
 };
 
+export type HomeParams = {
+  sortBy: string;
+  order: string;
+  categoryId: string;
+  search: string;
+  currentPage: number;
+};
+
 export interface PizzaSliceState {
   items: Pizza[];
   status: Status;

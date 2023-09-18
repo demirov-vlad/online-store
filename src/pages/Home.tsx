@@ -17,7 +17,7 @@ import {
   setFilters,
 } from "../redux/filter/slice";
 import { selectPizzaData } from "../redux/pizza/selectors";
-import { FetchParams } from "../redux/pizza/types";
+import { HomeParams } from "../redux/pizza/types";
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -75,13 +75,13 @@ export const Home: React.FC = () => {
     if (window.location.search) {
       const params = qs.parse(
         window.location.search.substring(1),
-      ) as unknown as FetchParams;
+      ) as unknown as HomeParams;
       const sort = sortList.find((obj) => obj.sortProp === params.sortBy);
 
       dispatch(
         setFilters({
           searchValue: params.search,
-          categoryId: Number(params.category),
+          categoryId: Number(params.categoryId),
           currentPage: Number(params.currentPage),
           sort: sort || sortList[0],
         }),
