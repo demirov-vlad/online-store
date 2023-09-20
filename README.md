@@ -32,3 +32,5 @@ Used stack/technologies:
 - React Pagination
 - Lodash.Debounce (for searching)
 - Code Splitting, React Loadable, useWhyDidYouUpdate.
+
+by Demirov Vladyslav.
