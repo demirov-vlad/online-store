@@ -104,7 +104,7 @@ export const Home: React.FC = () => {
   const pizzas = items.map((object: any) => (
     <PizzaBlock key={object.id} {...object} />
   ));
-  const skeletons = [...new Array(6)].map((_, index) => (
+  const skeletons = [...new Array(4)].map((_, index) => (
     <Skeleton key={index} />
   ));
 

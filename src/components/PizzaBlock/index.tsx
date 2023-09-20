@@ -5,7 +5,7 @@ import { CartItem } from "../../redux/cart/types";
 import { Link } from "react-router-dom";
 import { selectCartItemById } from "../../redux/cart/selectors";
 
-const typeNames = ["thin", "traditional"];
+const typeNames = ["Lush crust", "Thin crust"];
 
 type PizzaBlockProps = {
   id: string;

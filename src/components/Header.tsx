@@ -1,4 +1,4 @@
-import logoSvg from "../assets/img/pizza-logo.svg";
+import logoSvg from "../assets/img/pizza-logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "./Search";
 import React from "react";
@@ -27,10 +27,10 @@ function Header() {
       <div className="container">
         <Link to="/">
           <div className="header__logo">
-            <img width="38" src={logoSvg} alt="Pizza logo" />
+            <img width="70" src={logoSvg} alt="Pizza logo" />
             <div>
-              <h1>React Pizza</h1>
-              <p>the mos delicious pizza in the universe</p>
+              <h1>Italiano vero</h1>
+              <p>the most delicious italia pizza</p>
             </div>
           </div>
         </Link>

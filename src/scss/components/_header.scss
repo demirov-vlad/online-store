@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 648px) {
+    @media (max-width: 760px) {
       flex-direction: column;
       .header__cart {
         margin-top: 20px;
@@ -29,6 +29,7 @@
     }
 
     h1 {
+      padding-top: 10px;
       color: #181818;
       font-size: 24px;
       text-transform: uppercase;
