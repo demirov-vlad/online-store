@@ -44,6 +44,14 @@
     border-width: 2px;
   }
 
+  @media (max-width: 480px) {
+    &--circle {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+    }
+  }
+
   &--black {
     background-color: $black;
 

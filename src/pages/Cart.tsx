@@ -139,7 +139,7 @@ const Cart: React.FC = () => {
                 ></path>
               </svg>
 
-              <span>Return back</span>
+              <span>Return</span>
             </Link>
             <div className="button pay-btn">
               <span>Pay now</span>
