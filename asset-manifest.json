@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/react-pizza/static/css/main.e341b7e6.css",
-    "main.js": "/react-pizza/static/js/main.2cb5a62d.js",
-    "static/js/345.9a0e95f6.chunk.js": "/react-pizza/static/js/345.9a0e95f6.chunk.js",
-    "static/js/793.0febc106.chunk.js": "/react-pizza/static/js/793.0febc106.chunk.js",
+    "main.css": "/react-pizza/static/css/main.899e5576.css",
+    "main.js": "/react-pizza/static/js/main.0fc8babb.js",
+    "static/js/345.a573c0b0.chunk.js": "/react-pizza/static/js/345.a573c0b0.chunk.js",
+    "static/js/793.3ad3c81f.chunk.js": "/react-pizza/static/js/793.3ad3c81f.chunk.js",
     "static/css/651.79100147.chunk.css": "/react-pizza/static/css/651.79100147.chunk.css",
     "static/js/651.587c5db9.chunk.js": "/react-pizza/static/js/651.587c5db9.chunk.js",
     "static/js/787.44c24075.chunk.js": "/react-pizza/static/js/787.44c24075.chunk.js",
     "static/media/pizza-logo.png": "/react-pizza/static/media/pizza-logo.b078323524a5331786d9.png",
     "static/media/empty-cart.png": "/react-pizza/static/media/empty-cart.db905d1f4b063162f25b.png",
     "index.html": "/react-pizza/index.html",
-    "main.e341b7e6.css.map": "/react-pizza/static/css/main.e341b7e6.css.map",
-    "main.2cb5a62d.js.map": "/react-pizza/static/js/main.2cb5a62d.js.map",
-    "345.9a0e95f6.chunk.js.map": "/react-pizza/static/js/345.9a0e95f6.chunk.js.map",
-    "793.0febc106.chunk.js.map": "/react-pizza/static/js/793.0febc106.chunk.js.map",
+    "main.899e5576.css.map": "/react-pizza/static/css/main.899e5576.css.map",
+    "main.0fc8babb.js.map": "/react-pizza/static/js/main.0fc8babb.js.map",
+    "345.a573c0b0.chunk.js.map": "/react-pizza/static/js/345.a573c0b0.chunk.js.map",
+    "793.3ad3c81f.chunk.js.map": "/react-pizza/static/js/793.3ad3c81f.chunk.js.map",
     "651.79100147.chunk.css.map": "/react-pizza/static/css/651.79100147.chunk.css.map",
     "651.587c5db9.chunk.js.map": "/react-pizza/static/js/651.587c5db9.chunk.js.map",
     "787.44c24075.chunk.js.map": "/react-pizza/static/js/787.44c24075.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e341b7e6.css",
-    "static/js/main.2cb5a62d.js"
+    "static/css/main.899e5576.css",
+    "static/js/main.0fc8babb.js"
   ]
 }
