@@ -38,7 +38,7 @@ const PizzaDescription: React.FC = () => {
         </h2>
         <h3>Structure:</h3>
         <p>{pizza.structure}</p>
-        <Link to="/react-pizza" className="button button--outline">
+        <Link to="/" className="button button--outline">
           <span>Return back</span>
         </Link>
       </div>

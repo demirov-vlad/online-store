@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom/client";
+import React from "react";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
@@ -11,7 +12,7 @@ const rootElement = document.getElementById("root");
 if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
-    <BrowserRouter>
+    <BrowserRouter basename={"/react-pizza/"}>
       <Provider store={store}>
         <App />
       </Provider>

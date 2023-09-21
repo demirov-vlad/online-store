@@ -11,11 +11,10 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 function App() {
   return (
     <Routes>
-      <Route path="/react-pizza" element={<MainLayout />}>
+      <Route path="/" element={<MainLayout />}>
         <Route path="" element={<Home />} />
-
         <Route
-          path="/react-pizza/cart"
+          path="/cart"
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <Cart />
@@ -24,7 +23,7 @@ function App() {
         />
 
         <Route
-          path="/react-pizza/pizza/:id"
+          path="/pizza/:id"
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <PizzaDescription />

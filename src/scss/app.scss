@@ -334,12 +334,13 @@ body {
         font-weight: bold;
         font-size: 22px;
         letter-spacing: 0.01em;
+        margin-left: 15px;
       }
     }
 
     @media (max-width: 760px) {
       b {
-        font-size: 16px;
+        font-size: 14px;
         padding: 0 5px 0 5px;
       }
     }
@@ -349,6 +350,9 @@ body {
       align-items: center;
       justify-content: flex-end;
       width: 0.5%;
+      margin-right: -10px;
+      margin-left: 10px;
+
 
       .button {
         border-color: darken($color: $gray-line, $amount: 10);

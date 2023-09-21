@@ -73,6 +73,7 @@ export const Home: React.FC = () => {
   // if first render occurred, checking URL params and saving them to Redux
   React.useEffect(() => {
     if (window.location.search) {
+      console.log(window.location.search);
       const params = qs.parse(
         window.location.search.substring(1),
       ) as unknown as HomeParams;
